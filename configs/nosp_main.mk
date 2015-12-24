@@ -21,6 +21,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     Launcher3 \
     LiveWallpapersPicker \
+    OmniJaws \
     PrebuiltExchange3Google
 
 #Custom Packages
