@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,27 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Include overlays
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/nexus/overlay/common
+include vendor/nosp/configs/aosp_fixes.mk
+include vendor/nosp/configs/bootanimation.mk
+include vendor/nosp/configs/nosp_main.mk
+include vendor/nosp/configs/system_additions.mk
+include vendor/nosp/configs/version.mk
 
-# Main Required Packages
-PRODUCT_PACKAGES += \
-    Launcher3 \
-    LiveWallpapersPicker \
-    PrebuiltExchange3Google
-
-#Custom Packages
-PRODUCT_PACKAGES += \
-    PureNexusSettings \
-    LockClock \
-    WallpaperPicker
-
-# Busybox
-PRODUCT_PACKAGES += \
-    Busybox
-
-# SuperSU FTW
+# Enable SIP+VoIP
 PRODUCT_COPY_FILES += \
-    vendor/nexus/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/nexus/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml

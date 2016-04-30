@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +13,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Include Pure Nexus tv configuration
-include vendor/nexus/configs/nexus_tv.mk
+include vendor/nosp/configs/aosp_fixes.mk
+include vendor/nosp/configs/bootanimation.mk
+include vendor/nosp/configs/nosp_main.mk
+include vendor/nosp/configs/system_additions.mk
+include vendor/nosp/configs/version.mk
 
-# Inherit AOSP device configuration
-$(call inherit-product, device/asus/fugu/aosp_fugu.mk)
+# Telephony packages
+PRODUCT_PACKAGES += \
+    Stk \
+    CellBroadcastReceiver
 
-# Override AOSP build properties
-PRODUCT_NAME := nexus_fugu
-PRODUCT_BRAND := google
-PRODUCT_DEVICE := fugu
-PRODUCT_MODEL := Nexus Player
-PRODUCT_MANUFACTURER := Asus
+# Allow tethering without provisioning app
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
 
-# Device Fingerprint
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=fugu \
-    BUILD_FINGERPRINT=google/fugu/fugu:6.0.1/MOB30G/2723637:user/release-keys \
-    PRIVATE_BUILD_DESC="fugu-user 6.0.1 MOB30G 2723637 release-keys"
+# Thank you, please drive thru!
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.dun.override=0

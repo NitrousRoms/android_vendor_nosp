@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +14,8 @@
 # limitations under the License.
 
 #pure nexus versioning
-export NEXUS_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d)
+export NOSP_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.purenexus.version=$(NEXUS_VERSION)
+    ro.nosp.version=$(NOSP_VERSION)
 

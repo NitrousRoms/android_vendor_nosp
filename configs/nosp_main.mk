@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +13,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/nexus/configs/aosp_fixes.mk
-include vendor/nexus/configs/bootanimation.mk
-include vendor/nexus/configs/nexus_main.mk
-include vendor/nexus/configs/system_additions.mk
-include vendor/nexus/configs/version.mk
+# Include overlays
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/nosp/overlay/common
 
-# Telephony packages
+# Main Required Packages
 PRODUCT_PACKAGES += \
-    Stk \
-    CellBroadcastReceiver
+    Launcher3 \
+    LiveWallpapersPicker \
+    PrebuiltExchange3Google
 
-# Allow tethering without provisioning app
-PRODUCT_PROPERTY_OVERRIDES += \
-    net.tethering.noprovisioning=true
+#Custom Packages
+PRODUCT_PACKAGES += \
+    LockClock \
+    WallpaperPicker
 
-# Thank you, please drive thru!
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.dun.override=0
+# Busybox
+PRODUCT_PACKAGES += \
+    Busybox
+
+# SuperSU FTW
+PRODUCT_COPY_FILES += \
+    vendor/nosp/prebuilt/supersu/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/nosp/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon

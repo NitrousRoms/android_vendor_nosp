@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,24 +13,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Include Pure Nexus tv configuration
-include vendor/nexus/configs/nexus_tv.mk
+# Include Pure Nexus telephony configuration
+include vendor/nosp/configs/nosp_phone.mk
 
-# Inherit AOSP device configuration
-$(call inherit-product, device/google/molly/full_molly.mk)
+# Inherit AOSP device configuration for angler
+$(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := nexus_molly
+PRODUCT_NAME := nosp_angler
 PRODUCT_BRAND := google
-PRODUCT_DEVICE := molly
-PRODUCT_MODEL := ADT-1
-PRODUCT_MANUFACTURER := Google
+PRODUCT_DEVICE := angler
+PRODUCT_MODEL := Nexus 6P
+PRODUCT_MANUFACTURER := Huawei
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=molly \
-    BUILD_FINGERPRINT=google/molly/molly:5.0.2/LRX22G/1649326:user/release-keys \
-    PRIVATE_BUILD_DESC="molly-user 5.0.2 LRX22G 1649326 release-keys"
-
-PRODUCT_COPY_FILES += \
-    vendor/nexus/prebuilt/bootanimation/molly.zip:system/media/bootanimation.zip
+    PRODUCT_NAME=angler \
+    BUILD_FINGERPRINT=google/angler/angler:6.0.1/MTC19T/2741993:user/release-keys \
+    PRIVATE_BUILD_DESC="angler-user 6.0.1 MTC19T 2741993 release-keys"

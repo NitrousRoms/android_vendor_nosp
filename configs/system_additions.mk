@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The Pure Nexus Project
+# Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,17 +31,17 @@ endif
 
 # init.d script support
 PRODUCT_COPY_FILES += \
-    vendor/nexus/prebuilt/bin/sysinit:system/bin/sysinit
+    vendor/nosp/prebuilt/bin/sysinit:system/bin/sysinit
 
-# PureNexus-specific init file
+# NOSP-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/nexus/prebuilt/etc/init.purenexus.rc:root/init.purenexus.rc
+    vendor/nosp/prebuilt/etc/init.purenosp.rc:root/init.purenosp.rc
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/nexus/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/nexus/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/nexus/prebuilt/bin/50-base.sh:system/addon.d/50-base.sh \
+    vendor/nosp/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/nosp/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/nosp/prebuilt/bin/50-base.sh:system/addon.d/50-base.sh \
 
 # Security Enhanced Linux
 PRODUCT_PROPERTY_OVERRIDES += \
