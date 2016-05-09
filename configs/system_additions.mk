@@ -35,7 +35,7 @@ PRODUCT_COPY_FILES += \
 
 # NOSP-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/nosp/prebuilt/etc/init.purenosp.rc:root/init.purenosp.rc
+    vendor/nosp/prebuilt/etc/init.nosp.rc:root/init.nosp.rc
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
