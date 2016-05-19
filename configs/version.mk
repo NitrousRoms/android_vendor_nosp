@@ -1,4 +1,3 @@
-# Copyright (C) 2015 The Pure Nexus Project
 # Copyright (C) 2016 The Nitrous Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,9 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#pure nexus versioning
-export NOSP_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d)
+# Versioning System
+# NOSP version.
+PRODUCT_VERSION_MAJOR = 6.0.1
+PRODUCT_VERSION_MINOR = OFFICIAL
+PRODUCT_VERSION_MAINTENANCE = v1.0
+ifdef NOSP_BUILD_EXTRA
+    NOSP_POSTFIX := $(NOSP_BUILD_EXTRA)
+endif
+ifndef NOSP_BUILD_TYPE
+    NOSP_BUILD_TYPE := Release
+    NOSP_POSTFIX := $(shell date +"%Y%m%d-%H%M")
+endif
+
+# Set all versions
+NOSP_VERSION := NOSP-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(NOSP_BUILD_TYPE).$(NOSP_POSTFIX)
+NOSP_MOD_VERSION := NOSP-$(NOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(NOSP_BUILD_TYPE).$(NOSP_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nosp.version=$(NOSP_VERSION)
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    nosp.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(shell date) \
+    ro.nosp.version=$(NOSP_VERSION) \
+    ro.modversion=$(NOSP_MOD_VERSION) \
+    ro.nosp.buildtype=$(NOSP_BUILD_TYPE)
 
