@@ -22,6 +22,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LiveWallpapersPicker \
     OmniJaws \
+    Chromium \
     PrebuiltExchange3Google
 
 #Custom Packages
