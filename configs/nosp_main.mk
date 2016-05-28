@@ -19,7 +19,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 # Main Required Packages
 PRODUCT_PACKAGES += \
-    Launcher3 \
+    SlimLauncher \
     LiveWallpapersPicker \
     OmniJaws \
     Chromium \
